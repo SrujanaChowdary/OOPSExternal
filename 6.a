@@ -1,0 +1,46 @@
+#include<iostream>
+using namespace std;
+class collegecourse
+{
+    string department;
+    int coursenum;
+    int credithrs;
+     string tuition;
+    public:
+    collegecourse()
+    {
+        department="information technology";
+        coursenum=243;
+        credithrs=8;
+        tuition="akshara tuition";
+    }
+    void disp()
+    {
+        cout<<"department is: "<<department<<endl;
+        cout<<"coursenum is: "<<coursenum<<endl;
+        cout<<"credithrs is: "<<credithrs<<endl;
+        cout<<"tuition is: "<<tuition<<endl;
+    }
+    
+};
+class labcourse:public collegecourse
+{
+    int labfee,tuitionfee;
+    public:
+    labcourse()
+    {
+        labfee=5000;
+        tuitionfee=2000;
+    }
+    void put()
+    {
+        cout<<"labfee is: "<<labfee<<endl;
+        cout<<"tuitionfee is: "<<tuitionfee<<endl;
+    }
+};
+int main()
+{
+    labcourse l;
+    l.disp();
+    l.put();
+}
