@@ -1,0 +1,24 @@
+#include <stdlib.h>
+#include <iostream>
+#include <stdio.h>
+#include <cstdlib>
+#include <string>
+#include <fstream> // for file
+using namespace std;
+const string FILE_NAME = "Limericks.txt";
+int main()
+{
+ string s[5];
+ for (int i = 0; i < 5; i++)
+ {
+  cout<<"Enter "<<i+1<<" limerick : ";
+  cin.clear();
+  cin.sync();
+  getline(cin,s[i]);
+ }
+ ofstream fout(FILE_NAME);
+ for (int i = 0; i < 5; i++)
+   fout<<s[i]<<"\n";
+ cout<<"Limericks were written into file..."<<endl;
+ return 0;
+}
