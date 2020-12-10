@@ -1,0 +1,94 @@
+#include<bits/stdc++.h>
+using namespace std;
+class order
+{
+	int orderNumber;
+	int quantity;
+	float price;
+	float total;
+	public:
+		order()
+		{
+			cout<<"In process of getting details...\n:";
+		}
+		friend ostream & operator << (ostream& ,order &);
+		friend istream & operator >> (istream& ,order &);
+};
+bool checkStr(string s)
+{
+	for(int i=0;s[i]!='\0';i++)
+	{
+		if(!isdigit(s[i]))
+			return false;
+	}
+	return true;
+}
+ostream & operator << (ostream &out,order &o)
+{
+	out<<"order details are:\n";
+	out<<"order number:"<<o.orderNumber<<endl;
+	out<<"quantity:"<<o.quantity<<endl;
+	out<<"price for 1 quantity:"<<o.price<<endl;
+	out<<"total cost:"<<o.total<<endl;
+}
+istream & operator >> (istream& in,order &o)
+{
+	string orderNo,p,q;
+	cout<<"enter order number:";
+	in>>orderNo;
+	cout<<"enter quantity:";
+	in>>q;
+	cout<<"enter price for each item:";
+	in>>p;
+	stringstream obj(orderNo);
+	obj>>o.orderNumber;
+	stringstream obj1(p);
+	obj1>>o.price;
+	stringstream obj2(q);
+	obj2>>o.quantity;
+	o.total=o.quantity*o.price;
+	try
+	{
+		if(!checkStr(orderNo))
+			throw orderNo;
+		else if(o.orderNumber>9999)
+			throw "invalid length of numeric order number";
+		else if(!checkStr(p))
+			throw p;
+		else if(!checkStr(q))
+			throw q;
+		else if(1>o.quantity||o.quantity>50)
+			throw o.quantity;
+		else if(o.price>2939||o.price<1)
+			throw o.price;
+		else if(o.total>73600)
+			throw o;
+	}
+	catch(char const * s)
+	{
+		cout<<"invalid non numeric input"<<endl;
+		cin>>o;
+	}
+	catch(int n)
+	{
+		cout<<"invalid input of quantity-"<<n<<endl;
+		cin>>o;
+	}
+	catch(float n)
+	{
+		cout<<"invalid input of price for each item i.e;"<<n<<endl;
+		cin>>o;
+	}
+	catch(order ob)
+	{
+		cout<<"total amount exceeded- "<<ob.total<<endl;
+		cin>>o;
+	}
+}
+int main()
+{
+	order o;
+	cin>>o;
+	cout<<o;
+	return 0;
+}
