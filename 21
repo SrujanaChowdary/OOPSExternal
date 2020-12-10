@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+ 
+class Shape
+{
+  protected:
+    double x,y;
+  public:
+    void set_data (double a, double b=0)
+    {
+        x = a;
+        y = b;
+        
+    }
+    
+    virtual void calculate_area() = 0;
+};
+ 
+class Rectangle: public Shape
+{
+public:
+    void calculate_area ()
+    {
+        
+        cout<<"length is "<<x<<"\nbreadth is "<<y;
+        cout<<"\narea is ";
+        cout<<(x*y);
+    }
+};
+    
+class Circle: public Shape
+    {
+public:
+     void calculate_area()
+     {
+        cout<<"\nradius of circle is "<<x<<endl;
+        cout<<"\nArea of circle is ";
+        cout<<(3.14*x*x);
+     }
+    };
+ 
+int main ()
+{
+    Shape *sPtr;
+	
+    Rectangle R;
+    sPtr = &R;
+    
+    sPtr -> set_data (5,2);
+     sPtr -> calculate_area();
+     
+     Circle C;
+    sPtr = &C;
+     
+     sPtr-> set_data(3);
+     sPtr-> calculate_area();
+    return 0;
+}
+
