@@ -1,0 +1,149 @@
+#include<bits/stdc++.h>
+using namespace std;
+class order
+{
+	int orderNumber;
+	int quantity;
+	float price;
+	float total;
+	public:
+		order(int);
+		void get_orderNo();
+		void get_quantity();
+		void get_price();
+		void display();
+};
+bool checkStr(string s)
+{
+	for(int i=0;s[i]!='\0';i++)
+	{
+		if(!isdigit(s[i]))
+			return false;
+	}
+	return true;
+}
+order::order(int n)
+{
+	cout<<n<<" objects are created\n";
+}
+void order::get_orderNo() 
+{
+	string s;
+	cout<<endl<<"Enter order number(not exceeding 4 digits): ";
+	cin>>s;
+	stringstream obj(s);
+	obj>>orderNumber;
+	try
+	{
+		if(!checkStr(s))
+			throw orderNumber;
+		else if(orderNumber>9999)
+			throw "Please enter an order of valid length";
+	}
+	catch(int n)
+	{
+		cout<<"Invalid non numeric order number\nreenter\n";
+		get_orderNo();
+	}
+	catch(char const* s)
+	{
+		cout<<s;
+		cout<<"\nReneter order number\n";
+		get_orderNo();
+	}
+}
+void order::get_quantity() 
+{
+	string s;
+	cout<<"Enter quantity:";
+	cin>>s;
+	stringstream obj(s);
+	obj>>quantity;
+	try
+	{
+		if(!checkStr(s))
+			throw quantity;
+		if(quantity<1||quantity>50)
+			throw "Order limit exceeded"; 
+	}
+	catch(int n)
+	{
+		cout<<"invalid non numeric quantity\n";
+		orderNumber=0;
+		quantity=0;
+		price=0;
+		total=0;
+		exit(0);
+	}
+	catch(char const* s)
+	{
+		cout<<s;
+		orderNumber=0;
+		quantity=0;
+		price=0;
+		total=0;
+		exit(0);
+	}
+}
+void order::get_price()
+{
+	string s;
+	cout<<"Enter price for 1 quantity:";
+	cin>>s;
+	stringstream obj(s);
+	obj>>price;
+	try
+	{
+		if(!checkStr(s))
+			throw price;
+		if(price>2939||price<1)	// other exceptions, include more exceptions of your choice
+			throw "exceeded";
+	}
+	catch(int n)
+	{
+		cout<<"invalid non numeric price\n";
+		orderNumber=0;
+		quantity=0;
+		price=0;
+		total=0;
+		exit(0);
+	}
+	catch(char const* s)
+	{
+		cout<<s;
+		orderNumber=0;
+		quantity=0;
+		price=0;
+		total=0;
+		exit(0);
+	}
+	total=quantity*price;
+	try
+	{
+		if(total<1||total>73600)
+			throw "check ur credit limit";
+	}
+	catch(char const* s)
+	{
+		cout<<"Total amount exceeded 1000$\n"<<s<<endl;
+	}
+}
+void order::display()
+{
+	cout<<endl<<"Order details:\n";
+	cout<<"Order number:"<<orderNumber<<endl;
+	cout<<"Quantity:"<<quantity<<endl;
+	cout<<"Price for each:"<<price<<endl;
+	cout<<"Total Amount:"<<total<<endl;
+}
+int main()
+{
+	order o(5);
+	for(int i=0;i<5;i++)
+	{
+		o.get_orderNo();
+		o.get_quantity();
+		o.get_price();
+		o.display();
+	}
+	return 0;
