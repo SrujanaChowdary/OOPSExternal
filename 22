@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std;
+class Shape
+{
+protected:
+double d1,d2;
+public:
+Shape()
+{
+d1=0;
+d2=0;
+}
+void get_data()
+{
+cout<<"\nEnter two dimensions to compute are :";
+cin>>d1>>d2;
+}
+virtual void display_area()
+{
+    cout<<"Dimension 1:"<<d1<<"\tDimension 2:"<<d2<<endl;
+}
+};
+class Triangle : public Shape
+{
+public:
+void display_area()
+{
+    cout<<"Height of Triangle:"<<d1<<"\t base of Triangle:"<<d2<<endl;
+cout<<"\nArea of Triangle = "<<(d1*d2)*0.5 <<endl;
+}
+};
+
+
+class Rectangle : public Shape
+{
+public:
+
+void display_area()
+{
+    cout<<"Length of Rectangle:"<<d1<<"\t breadth of Rectangle:"<<d2<<endl;
+cout<<"\nArea of Rectangle = "<<d1*d2<<endl;
+}
+};
+int main()
+{
+Shape *s;
+Triangle t;
+t.get_data();
+s=&t;
+s->display_area();
+Rectangle r;
+r.get_data();
+s=&r;
+s->display_area();
+getch();
+}
