@@ -1,0 +1,71 @@
+#include <iostream>
+#include<fstream>
+using namespace std;
+class student
+{
+    int id;
+    char name[20];
+    int *subj;
+    public:
+    student(){}
+    student(int id,string name)
+    {
+        int i;
+        this->id=id;
+        for( i=0;i<name[i]!='\0';i++)
+        {
+            this->name[i]=name[i];
+        }
+        this->name[i]='\0';
+        this->subj=new int[6];
+        for(i=0;i<6;i++)
+        {
+            cout<<"enter marks of subj "<<i+1<<" : ";
+            cin>>subj[i];
+        }
+    }
+    void print()
+    {
+        cout<<"id: "<<id<<endl;
+        cout<<"name: "<<name<<endl;
+        for(int i=0;i<6;i++)
+        {
+            cout<<"marks of "<<i+1<<" : "<<subj[i]<<endl;
+        }
+    }    
+};
+int main()
+{
+    
+    student s1(1,"ray"),s3(2,"norman");
+    ofstream ofile("data.txt");
+    ofile.write((char*)&s1,sizeof(student)); // writing 3rd obj
+    ofile.write((char*)&s3,sizeof(student)); // writing 1st obj
+    ofile.close();
+    fstream file("data.txt",ios::in|ios::out);
+    file.seekg(0,ios::beg);
+    file.seekp(0,ios::beg);
+    int count=1,pos;
+    student temp;
+    while(!file.eof())
+    {
+        pos=file.tellg();
+        if(count==2)
+        {
+           
+            file.seekp(pos);
+            break;
+        }
+         file.read((char*)&temp,sizeof(student));
+         count++;
+    }
+    file.close();
+    ifstream ifile("data.txt");
+    for(int i=1;i<=2;i++) // printing details
+    {   
+        cout<<"object: "<<i<<endl;
+        ifile.read((char*)&temp,sizeof(student));
+        temp.print();
+     }
+    return 0;
+}
