@@ -1,0 +1,95 @@
+#include<iostream>
+using namespace std;
+class staff
+{
+    int code;
+    char name[50];
+    public:
+    void getdata()
+    {
+        cout<<"enter the code of the staff"<<endl;
+        cin>>code;
+        cout<<"enter the name of the staff"<<endl;
+        cin>>name;
+    }
+    void putdata()
+    {
+        cout<<"the code of the staff is :"<<code<<endl;
+        cout<<"the name of the staff is :"<<name<<endl;
+    }
+};
+class teacher:public staff
+{
+    char subject[20];
+    char publication[15];
+    public:
+    void get()
+    {
+        cout<<"enter the name of the subject"<<endl;
+        cin>>subject;
+        cout<<"enter the name of the publication"<<endl;
+        cin>>publication;
+    }
+    void put()
+    {
+        cout<<"the name of the subject is :"<<subject<<endl;
+        cout<<"the name of the publication is : "<<publication<<endl;
+    }
+};
+class typist:public staff
+{
+    float speed;
+    public:
+    void print()
+    {
+        speed=5.5;
+        cout<<"the typist staff can complete reading of one paragraph in: "<<speed<<"mins"<<endl;
+    }
+};
+class officer:public staff
+{
+    char grade;
+    public:
+    void get()
+    {
+      grade='A';
+      cout<<"the grade of the officer is: "<<grade<<endl;
+    }
+};
+class regular:public typist
+{
+    
+};
+class casual:public typist
+{
+    int dailywages;
+    public:
+    void getd()
+    {
+        dailywages=1000;
+        cout<<"the daily wages are: "<<dailywages<<endl;
+    }
+};
+
+int main()
+{
+    teacher t;
+    typist s;
+    officer o;
+    regular r;
+    casual c;
+    t.getdata();
+    t.putdata();
+    t.get();
+    t.put();
+    s.getdata();
+    s.putdata();
+    s.print();
+    o.getdata();
+    o.putdata();
+    o.get();
+    c.getdata();
+    c.putdata();
+    c.print();
+    c.getd();
+}
