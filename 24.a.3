@@ -1,0 +1,14 @@
+#include<iomanip>
+#include <iostream>
+using namespace std;
+void set_precision(int d)
+{
+   
+    cout.precision(d);
+}
+int main()
+{
+    set_precision(3);
+    cout<<fixed<<1.2;
+    
+}
