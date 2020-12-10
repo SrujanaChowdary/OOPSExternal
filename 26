@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+class Base//Base class
+{
+	public:
+		int data;//data member of base class
+
+};
+class Derived : public Base//derived class Derived from base class Base
+{
+	int data2;//another data member for derived class
+};
+int nonmem(Base *b)//non member function
+{
+	cout<<sizeof(Base);
+}
+int main()
+{
+	Derived *d = new Derived;
+	cout<<"Size of derived class:"<<sizeof(Derived);
+	cout<<endl;
+	cout<<"Size of base class:"<<sizeof(Base);
+	cout<<endl;
+	cout<<"Calling the non member function with derived class object:";
+	nonmem(d);
+}
