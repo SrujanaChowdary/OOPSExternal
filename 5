@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+class musicalcomposition
+{
+    string title;
+    string composer;
+    int year;
+    public:
+    musicalcomposition()
+    {
+        title="vandemataram";
+        composer="bankim chandra bhaterjee";
+        year=1860;
+    }
+    void display() const 
+    {
+        cout<<"the title is: "<< title<<endl;
+        cout<<"the composer is :"<<composer<<endl;
+        cout<<"the year written is "<<year<<endl;
+    }
+};
+class nationalanthem:public musicalcomposition
+{
+    string nation;
+    public:
+    nationalanthem()
+    {
+        nation="Indian";
+    }
+   virtual void display()
+    {
+        musicalcomposition::display();
+        cout<<"the vandemataram is one of the national anthem of "<<nation<<" nation"<<endl;
+    }
+};
+int main()
+{
+    nationalanthem n;
+    n.display();
+    
+}
