@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    cout.fill('.');
+    cout.setf(ios::left,ios::adjustfield);
+	cout.width(60);
+	cout<<"Chapter 10 String class"<<"222";
+	cout.width(60);
+	cout<<"\nChapter 11 Inheritance"<<"244";
+	cout.width(60);
+	cout<<"\nChapter 12 Streams"<<"273";
+	cout<<endl;
+return 0;	
+}
+
+
+	
