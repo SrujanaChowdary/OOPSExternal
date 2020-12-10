@@ -1,0 +1,22 @@
+#include <iostream>
+#include <iomanip>
+#include<math.h>
+using namespace std;
+
+int main()
+{
+
+ float x=sqrt(2);
+ cout<<setprecision(0)<<endl;
+ cout<<x<<setprecision(2)<<endl;
+ cout<<x<<setprecision(3)<<endl;
+ cout<<x<<setprecision(4)<<endl;
+ cout<<x<<setprecision(5)<<endl;
+ cout<<x<<setprecision(6)<<endl;
+ cout<<x<<setprecision(7)<<endl;
+ cout<<x<<setprecision(8)<<endl;
+ cout<<x<<setprecision(9)<<endl;
+ cout<<x<<setprecision(10)<<endl;
+ cout<<x<<setprecision(11)<<endl;
+ return 0;
+}
