@@ -1,0 +1,24 @@
+#include<iostream>
+#include<fstream>
+#include<string.h>
+using namespace std;
+int main()
+{
+	char data[50], ch;
+	cout<<"Enter a line of text: ";
+	cin.getline(data, 50);
+	fstream file("data.txt", ios::in | ios::out);
+	int len = strlen(data);
+	for(int i=0; i<len; i++)
+	{
+		file.put(data[i]);
+	}
+	file.seekg(2);
+	for(int i=2; i<len; i++)
+	{
+		file.get(ch);
+		cout<<ch;
+	}
+	file.close();
+	return 0;
+}
