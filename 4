@@ -1,0 +1,64 @@
+#include<iostream>
+using namespace std;
+class book
+{
+    char title[15];
+    char author[150];
+    public:
+    void getdata()
+    {
+        cout<<"enter the title of the book"<<endl;
+        cin>>title;
+        cout<<"enter the author of the book"<<endl;
+        cin>>author;
+    }
+    void putdata()
+    {
+        cout<<"the title of the book is: "<<title<<endl;
+        cout<<"the author of the book is: "<<author<<endl;
+    }
+};
+class fiction:public book
+{
+    float gradelvl;
+    public:
+    void getdata()
+    {
+        cout<<"enter the numeric grading level of the fiction book"<<endl;
+        cin>>gradelvl;
+    }
+    void putdata()
+    {
+        cout<<"the numeric grading level of the fiction book is: "<<gradelvl<<endl;
+        
+    }
+};
+class nonfiction:public book
+{
+    int pages;
+    public:
+    void getdata()
+    {
+        cout<<"the number of pages in nonfiction book"<<endl;
+        cin>>pages;
+    }
+    void putdata()
+    {
+        cout<<"the number of pages in the nonfiction book are:"<<pages<<endl;
+        
+    }
+};
+int main()
+{
+    book b;
+    fiction f;
+    nonfiction n;
+    b.getdata();
+    b.putdata();
+    f.getdata();
+    f.putdata();
+    b.getdata();
+    b.putdata();
+    n.getdata();
+    n.putdata();
+}
