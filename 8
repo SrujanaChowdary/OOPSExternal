@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+class Simple {
+public:
+    Simple() : i(0) {}
+    Simple(int x) : i(x) {}
+    const Simple& operator++() {
+        i++;
+        return *this;
+    }
+    void show()
+    {
+     cout<<"Value:"<<i;}
+private:
+    int i;
+
+};
+
+int main() {
+
+    Simple s;
+
+    ++s;
+    ///error: no 'operator++(int)' declared for postfix '++' (compiler warning)
+    ///s++;
+    ///a blank output screen
+return 0;
+}
