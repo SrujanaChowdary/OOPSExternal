@@ -1,0 +1,14 @@
+#include<iomanip>
+#include <iostream>
+using namespace std;
+void set_width(int w)
+{
+    cout.fill('*');
+    cout.width(w);
+}
+int main()
+{
+    set_width(5);
+    cout<<"hi";
+    
+}
