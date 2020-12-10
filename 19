@@ -1,0 +1,57 @@
+#include<iomanip>
+#include<ios>
+#include<iostream>
+#include<string>
+#include<ostream>
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	string s="Enter your name:"; //1
+	string a="anne"; //4
+	char line[50]; //7
+	string b="i lost my mind and i dont mind whre's my mind "; //7
+	int num=65; //3
+	char ch1,ch2; //6
+	
+	int x=6,y=6; //9
+	double c=3.1415; //2
+	
+	
+	
+	
+//1
+	cout<<"the string is="<<s<<endl;
+
+    
+//3
+	cout<<"before setting to the base the number is:"<<num<<endl;
+	cout<<"hexadecimal"<<setbase(16)<<num<<endl;
+	cout<<"octadecimal"<<setbase(8)<<num<<endl;
+//4
+	cout<<setfill('*');
+	cout<<setw(10)<<setiosflags(ios::left)<<a<<endl;
+//5
+   cout.put('O').put('k');
+   cout<<"\n";
+//6
+    cout<<"enter a character"<<endl;
+    ch1=cin.peek();
+    cin>>ch2;
+    cout<<"1st char:"<<ch1<<endl;
+    cout<<"2nd char:"<<ch2<<endl;
+    
+ // 7
+    cin.getline(line,50);
+    cout<<b<<endl;
+   
+ //8
+   cout<<setprecision(3)<<1.92<<"\t"<<1.925<<"\t"<<1.9258<<endl;
+  
+ //9 
+  cout<<setw(x)<<setprecision(y)<<87.4573<<endl;
+  //2
+    cout<<"scientific:\n"<<scientific<<uppercase<<c<<endl;
+   
+	return 0;	
+}
