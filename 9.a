@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+class student
+{
+    int roll;
+    public:
+    friend ostream& operator<<(ostream&,student&);
+    friend istream& operator>>(istream&,student&);
+};
+ostream& operator<<(ostream& os,student& s)
+{
+    os<<"roll no: "<<s.roll<<endl;
+    return os;
+}
+istream& operator>>(istream& is,student& s)
+{
+    cout<<"enter the roll number of the student"<<endl;
+    is>>s.roll;
+    return is;
+}
+int main()
+{
+    student s;
+    cin>>s;
+    cout<<s;
+    return 0;
+}
