@@ -1,0 +1,61 @@
+#include <iostream>
+#include<fstream>
+using namespace std;
+/*
+    0123456
+    abcdefg
+*/    
+int main()
+{ 
+  ofstream ofile("file.txt");
+  switch(1){
+  case 1:	
+     if(ofile.is_open())
+     {
+         ofile<<"abcdefg";  
+     }
+    break;
+  case 2:
+  	if(NULL)
+  {
+      cout<<"error in opening file for writing"<<endl;
+  }}
+  ofile.close();
+  ifstream ifile("file.txt");
+  switch(1){
+    case 1:  
+ 
+        if(ifile.is_open())
+        {
+                char c;
+                ifile.seekg(5,ios::beg); // random access
+                ifile.get(c);
+                cout<<c<<endl;
+        }
+    case 2:
+  	    if(NULL)
+        {
+             cout<<"error in opening file for reading "<<endl;
+        }
+        } 
+  ifile.close();
+  ofstream file("file.txt",ios::app);
+  
+   switch(1){
+    case 1:  
+        if(file.is_open())
+        {
+            file<<"12345"; // appending 
+            file.seekp(-1,ios::end);
+            file<<"6"; // modification
+         }
+    case 2:
+         if(NULL)
+        {
+             cout<<"error in opening file for reading "<<endl;
+        }
+        }
+  
+    return 0;
+}
+
