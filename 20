@@ -1,0 +1,64 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+int main()
+{
+    //a
+    int a=40000;
+    cout<<setw(15)<<a<<endl;
+    //b
+    char str[20];
+    //cin.getline(str,15);
+    //cout<<str<<endl;
+    //c
+    int c=200;
+    cout<<c<<endl<<-c<<endl;;
+    //d
+    int b=100.0;
+    cout<<"0x"<<hex<<b<<endl;
+    //f
+	float p=1.234;
+	cout<<setw(9)<<setfill('0')<<p<<endl;
+
+   //e
+    
+  //Read characters into a char Array until the character 'p' is encountered, 
+//up to a limit of 10 characters (including the terminating null character). 
+//Extract the delimiter 'p' from the input stream and discard it.
+
+	char characterArray[10];
+    char delimiter;
+    int ArrayPos = 0;
+
+	//read a string into character array 10 characters
+    cout << "Enter a string: ";
+	
+
+    while(ArrayPos <= 10){
+
+        //if the character is a p, we need to get rid of it.
+        if(cin.peek() == 'p')
+		{
+            //extract the delimiter from the stream
+
+			
+            ArrayPos = 11;  //exit loop
+
+        }
+			else
+			{
+              characterArray[ArrayPos] = cin.get();
+              ArrayPos++;
+		    }
+
+    }
+
+    cout << characterArray << endl;
+
+	system("pause");
+
+	return 0;
+     
+	
+}
