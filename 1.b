@@ -6,8 +6,7 @@ class Complex
    int real, imag; 
  public: 
    Complex(int r = 0, int i =0) 
-   { real = r; imag = i; } 
-   friend class Load;
+   { real = r; imag = i; }
  
 }; 
 class Load: public Complex
