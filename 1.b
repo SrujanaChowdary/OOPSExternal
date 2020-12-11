@@ -2,21 +2,26 @@
 using namespace std; 
 class Complex 
 { 
- private: 
+ protected: 
    int real, imag; 
  public: 
    Complex(int r = 0, int i =0) 
    { real = r; imag = i; } 
- friend ostream & operator << (ostream &out, const Complex &c); 
- friend istream & operator >> (istream &in, Complex &c); 
+   friend class Load;
+ 
 }; 
-ostream & operator << (ostream &out, const Complex &c) 
+class Load: public Complex
+{
+friend ostream & operator << (ostream &out, const Load &c); 
+ friend istream & operator >> (istream &in, Load &c); 
+};
+ostream & operator << (ostream &out, const Load &c) 
 { 
  out << c.real; 
- out << "+i" << c.imag << endl; 
+ out << "+i (" << c.imag<<")" << endl; 
  return out; 
 } 
-istream & operator >> (istream &in, Complex &c) 
+istream & operator >> ( istream &in, Load &c) 
 { 
  cout << "Enter Real Part "; 
  in >> c.real; 
@@ -26,7 +31,7 @@ istream & operator >> (istream &in, Complex &c)
 } 
 int main() 
 { 
- Complex c1; 
+ Load c1; 
  cin >> c1; 
  cout << "The complex object is "; 
  cout << c1; 
